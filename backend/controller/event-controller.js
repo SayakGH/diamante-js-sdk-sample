@@ -85,12 +85,12 @@ export const deleteEvent = async (req, res)=>{
     const { name} = req.body;//organizer will contain the callers id
     await User.updateMany(
         { participating: name }, // Filter to match documents with the specific value
-        { $set: { participating: null } }  // Update operation to set 'participating' to null
+        { $set: { participating:"" } }  // Update operation to set 'participating' to null
       );
 
     await User.updateMany(
         { organising: name }, // Filter to match documents with the specific value
-        { $set: { organising: null } }  // Update operation to set 'participating' to null
+        { $set: { organising: "" } }  // Update operation to set 'participating' to null
       );
 
     const event = new Event.findOne({name:name});

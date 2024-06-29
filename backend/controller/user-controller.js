@@ -1,4 +1,4 @@
-import bcrypt from 'bcryptjs';
+import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../models/userSchema.js';
 import {
@@ -14,7 +14,7 @@ export const register = async (req, res) => {
     const { username, email, password } = req.body;
     try {
       // Check if the user already exists
-      let user = await User.findOne({ email });
+      let user = await User.findOne({ email:email });
       if (user) {
         return res.status(400).json({ message: 'User already exists' });
       }

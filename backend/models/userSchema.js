@@ -17,12 +17,12 @@ const userSchema = new mongoose.Schema({
     },
     participating: {
         type: String,
-        defalut:NULL,
+        defalut:"",
         required: false,
     },
     organising: {
         type: String,
-        defalut:NULL,
+        defalut:"",
         required: false,
     },
 
