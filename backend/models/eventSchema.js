@@ -9,13 +9,9 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    hostingCode: {
+    Code: {
         type: String,
         required: true
-    },
-    participationCode: {
-        type: String,
-        required: true,
     }
 });
 

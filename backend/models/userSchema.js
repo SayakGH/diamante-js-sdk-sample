@@ -20,11 +20,6 @@ const userSchema = new mongoose.Schema({
         defalut:NULL,
         required: false,
     },
-    hosting: {
-        type: String,
-        defalut:NULL,
-        required: false,
-    },
     organising: {
         type: String,
         defalut:NULL,
@@ -35,7 +30,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    ssecret: {
+    secret: {
         type: String,
         required: true,
     }

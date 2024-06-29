@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import User from '../models/User.js';
+import User from '../models/userSchema.js';
 import {
     Keypair,
     TransactionBuilder,
@@ -37,6 +37,12 @@ export const register = async (req, res) => {
       user.publicKey = keypair.publicKey();
       user.secret = keypair.secret();
   
+      const fetch = await import('node-fetch').then(mod => mod.default);
+        const response = await fetch(`https://friendbot.diamcircle.io/?addr=${user.publicKey}`);
+        if (!response.ok) {
+            throw new Error(`Failed to activate account ${user.publicKey}: ${response.statusText}`);
+        }
+
       // Save user to the database
       await user.save();
   
